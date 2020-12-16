@@ -5,7 +5,6 @@ grumphp:
   ascii:
     failed: grumphp-grumpy.txt
     succeeded: grumphp-happy.txt
-  process_timeout: 10
   tasks:
     git_commit_message:
       enforce_no_subject_trailing_period: false
