@@ -23,8 +23,7 @@ grumphp:
     phpcpd:
       directory: ['./src']
     phpcs:
-      standard:
-        - phpcs.xml.dist
+      standard: AcquiaDrupalTransitional
       ignore_patterns:
         - .github
         - .gitlab
