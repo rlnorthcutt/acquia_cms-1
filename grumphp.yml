@@ -26,12 +26,12 @@ parameters:
       standard: AcquiaDrupalStrict
       ignore_patterns:
         - .github
-          - .gitlab
-          - .css
-          - bower_components
-          - node_modules
-          - vendor
-          - css
+        - .gitlab
+        - .css
+        - bower_components
+        - node_modules
+        - vendor
+        - css
       triggered_by:
         - php
         - module
