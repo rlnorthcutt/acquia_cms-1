@@ -43,7 +43,7 @@ env:
     # values are "AcquiaPHP", "AcquiaDrupalStrict", and
     # "AcquiaDrupalTransitional". Defaults to "AcquiaDrupalTransitional".
     # @see https://github.com/acquia/orca/blob/master/docs/advanced-usage.md#ORCA_PHPCS_STANDARD
-    # - ORCA_PHPCS_STANDARD=AcquiaDrupalStrict
+    - ORCA_PHPCS_STANDARD=AcquiaDrupalStrict
     # If your package is a Drupal installation profile, uncomment the following
     # line and specify its machine name.
     # @see https://github.com/acquia/orca/blob/master/docs/advanced-usage.md#ORCA_FIXTURE_PROFILE

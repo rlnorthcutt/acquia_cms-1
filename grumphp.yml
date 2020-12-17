@@ -1,10 +1,10 @@
 parameters:
+  ascii:
+    failed: vendor/vijaycs85/drupal-quality-checker/resources/ascii/grumpy.txt
+    succeeded: vendor/vijaycs85/drupal-quality-checker/resources/ascii/happy.txt
   git_dir: .
   bin_dir: vendor/bin
-grumphp:
-  ascii:
-    failed: grumphp-grumpy.txt
-    succeeded: grumphp-happy.txt
+  process_timeout: 0
   tasks:
     git_commit_message:
       enforce_no_subject_trailing_period: false
@@ -23,15 +23,15 @@ grumphp:
     phpcpd:
       directory: ['./src']
     phpcs:
-      standard: AcquiaDrupalTransitional
+      standard: AcquiaDrupalStrict
       ignore_patterns:
         - .github
-        - .gitlab
-        - .css
-        - bower_components
-        - node_modules
-        - vendor
-        - css
+          - .gitlab
+          - .css
+          - bower_components
+          - node_modules
+          - vendor
+          - css
       triggered_by:
         - php
         - module
