@@ -137,11 +137,13 @@ final class DashboardController extends ControllerBase {
     $item_count = 0;
     foreach (static::SECTIONS as $key => $controller) {
       $build[$key] = $this->getSectionOutput($key, $controller);
-      $state_var = $this->classResolver->getInstanceFromDefinition($controller)->getProgressState();
-      if ($state_var['total']) {
+
+      if (!empty($build[$key])) {
         $count++;
       }
-      if ($state_var['count']) {
+
+      $state_var = $this->classResolver->getInstanceFromDefinition($controller)->getProgressState();
+      if ($state_var) {
         $item_count++;
       }
     }

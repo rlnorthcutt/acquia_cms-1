@@ -173,12 +173,7 @@ final class RecaptchaForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getProgressState() {
-    if ($this->module_handler->moduleExists('recaptcha')) {
-      return [
-        'total' => 1,
-        'count' => $this->state->get('recaptcha_progress'),
-      ];
-    }
+    return ($this->state->get('recaptcha_progress'));
   }
 
 }

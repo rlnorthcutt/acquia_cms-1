@@ -165,12 +165,7 @@ final class GoogleTagManagerForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getProgressState() {
-    if ($this->module_handler->moduleExists('google_tag')) {
-      return [
-        'total' => 1,
-        'count' => $this->state->get('acquia_gtm_progress'),
-      ];
-    }
+    return ($this->state->get('acquia_gtm_progress'));
   }
 
 }

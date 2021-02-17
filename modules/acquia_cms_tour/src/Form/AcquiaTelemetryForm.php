@@ -193,12 +193,7 @@ final class AcquiaTelemetryForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getProgressState() {
-    if ($this->module_handler->moduleExists('acquia_telemetry')) {
-      return [
-        'total' => 1,
-        'count' => $this->state->get('acquia_telemetry_progress'),
-      ];
-    }
+    return ($this->state->get('acquia_telemetry_progress'));
   }
 
 }

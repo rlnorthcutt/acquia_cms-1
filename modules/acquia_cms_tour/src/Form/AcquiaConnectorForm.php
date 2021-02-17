@@ -169,12 +169,7 @@ final class AcquiaConnectorForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getProgressState() {
-    if ($this->module_handler->moduleExists('acquia_connector')) {
-      return [
-        'total' => 1,
-        'count' => $this->state->get('acquia_connector_progress'),
-      ];
-    }
+    return ($this->state->get('acquia_connector_progress'));
   }
 
 }

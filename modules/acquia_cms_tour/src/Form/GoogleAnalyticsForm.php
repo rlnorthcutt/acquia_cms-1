@@ -166,12 +166,7 @@ final class GoogleAnalyticsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getProgressState() {
-    if ($this->module_handler->moduleExists('google_analytics')) {
-      return [
-        'total' => 1,
-        'count' => $this->state->get('google_analytics_progress'),
-      ];
-    }
+    return ($this->state->get('google_analytics_progress'));
   }
 
 }
