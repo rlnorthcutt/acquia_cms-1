@@ -2,9 +2,11 @@
 
 namespace Drupal\acquia_cms_tour\Form;
 
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a Acquia Tour form.
@@ -48,6 +50,33 @@ class InstallationWizardForm extends FormBase {
    */
   public function getFormId() {
     return 'acquia_cms_tour_installation_wizard';
+  }
+
+  /**
+   * The module handler.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  protected $moduleHandler;
+
+  /**
+   * Constructs a new AcquiaConnectorForm.
+   *
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   The module handler service.
+   */
+  public function __construct(ModuleHandlerInterface $module_handler) {
+    $this->state = $state;
+    $this->moduleHandler = $module_handler;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('module_handler')
+    );
   }
 
   /**
@@ -127,16 +156,27 @@ class InstallationWizardForm extends FormBase {
     if (!$this->isCurrentStepFirst()) {
       $actions['back'] = [
         '#type' => 'submit',
-        '#value' => $this->t('Previous step'),
+        '#value' => $this->t('< Back'),
         '#submit' => ['::previousStepSubmit'],
       ];
     }
+
+    // Show skip this step button.
+    $actions['skip'] = [
+      '#type' => 'submit',
+      '#value' => $this->t("Skip this step"),
+      '#limit_validation_errors' => [],
+      '#attributes' => [
+        'class' => ['skip-button'],
+      ],
+      '#submit' => ['::skipStepSubmit'],
+    ];
 
     // Do not show 'next' button on the last step.
     if (!$this->isCurrentStepLast()) {
       $actions['next'] = [
         '#type' => 'submit',
-        '#value' => $this->t('Next step'),
+        '#value' => $this->t('Next >'),
         '#submit' => ['::nextStepSubmit'],
       ];
     }
@@ -148,7 +188,6 @@ class InstallationWizardForm extends FormBase {
         '#value' => $this->t("Submit information"),
       ];
     }
-
     return $actions;
   }
 
@@ -158,8 +197,7 @@ class InstallationWizardForm extends FormBase {
   public function previousStepSubmit(array &$form, FormStateInterface $form_state) {
     $this->copyFormValuesToStorage($form, $form_state);
     $this->current_step -= 1;
-    $form_state
-      ->setRebuild(TRUE);
+    $form_state->setRebuild(TRUE);
   }
 
   /**
@@ -168,8 +206,16 @@ class InstallationWizardForm extends FormBase {
   public function nextStepSubmit(array &$form, FormStateInterface $form_state) {
     $this->copyFormValuesToStorage($form, $form_state);
     $this->current_step += 1;
-    $form_state
-      ->setRebuild(TRUE);
+    $form_state->setRebuild(TRUE);
+  }
+
+  /**
+   * Skip the current state and mark it as completed.
+   */
+  public function skipStepSubmit(array &$form, FormStateInterface $form_state) {
+    $this->current_step += 1;
+    $form_state->setRebuild(TRUE);
+    $form_state->clearErrors();
   }
 
   /**
@@ -287,8 +333,10 @@ class InstallationWizardForm extends FormBase {
    */
   public function getSteps() {
     $steps = [];
-    foreach (static::SECTIONS as $controller) {
-      $steps[] = $controller;
+    foreach (static::SECTIONS as $module => $controller) {
+      if ($this->moduleHandler->moduleExists($module)) {
+        $steps[] = $controller;
+      }
     }
     return $steps;
   }
