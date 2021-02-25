@@ -2,6 +2,7 @@
 
 namespace Drupal\acquia_cms_tour\Form;
 
+use Drupal\Core\DependencyInjection\ClassResolverInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -60,14 +61,24 @@ class InstallationWizardForm extends FormBase {
   protected $moduleHandler;
 
   /**
+   * The class resolver.
+   *
+   * @var \Drupal\Core\DependencyInjection\ClassResolverInterface
+   */
+  protected $classResolver;
+
+  /**
    * Constructs a new AcquiaConnectorForm.
    *
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler service.
+   * @param \Drupal\Core\DependencyInjection\ClassResolverInterface $class_resolver
+   *   The class resolver.
    */
-  public function __construct(ModuleHandlerInterface $module_handler) {
+  public function __construct(ModuleHandlerInterface $module_handler, ClassResolverInterface $class_resolver) {
     $this->state = $state;
     $this->moduleHandler = $module_handler;
+    $this->classResolver = $class_resolver;
   }
 
   /**
@@ -75,7 +86,8 @@ class InstallationWizardForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('module_handler')
+      $container->get('module_handler'),
+      $container->get('class_resolver')
     );
   }
 
@@ -356,10 +368,70 @@ class InstallationWizardForm extends FormBase {
     $formController = $this->steps[$this->current_step];
     $sections = \array_flip(self::SECTIONS);
     $key = $sections[$formController];
-    $form = \Drupal::classResolver($formController)->buildForm($form, $form_state);
+    $form['title_markup'] = [
+      '#type' => 'markup',
+      '#markup' => $this->getTitleMarkup($key, ($this->current_step) + 1),
+    ];
+    $form['sidebar_markup'] = [
+      '#type' => 'markup',
+      '#markup' => $this->getSideBarMarkup($sections, ($this->current_step) + 1),
+    ];
+    $form = $this->classResolver->getInstanceFromDefinition($formController)->buildForm($form, $form_state);
     unset($form[$key]['actions']['submit']);
     unset($form[$key]['submit']);
     return $form;
+  }
+
+  /**
+   * Helper method for adding sidebar markup.
+   *
+   * @param array $sections
+   *   The module classes.
+   * @param int $current_step
+   *   The forms current step.
+   *
+   * @return string
+   *   The render array defining the markup of the sidebar.
+   */
+  public function getSideBarMarkup(array $sections, int $current_step) {
+    $sno = 0;
+    $markup = '<div class="tour_sidebar">';
+    foreach ($sections as $module) {
+      if ($this->moduleHandler->moduleExists($module)) {
+        $sno++;
+        if ($sno == $current_step) {
+          $current_class = 'current_step';
+        }
+        else {
+          $current_class = 'item-';
+        }
+        $module_name = $this->moduleHandler->getName($module);
+        $markup .= '<div class = ' . $current_class . ' id = ' . $module . '>' .
+          $sno . ' ' . $module_name .
+          '<div class = "status-icon">icon</div></div>';
+      }
+    }
+    $markup .= '</div>';
+    return $markup;
+
+  }
+
+  /**
+   * Helper method for adding title markup.
+   *
+   * @param string $module
+   *   The module machine name.
+   * @param int $current_step
+   *   The forms current step.
+   *
+   * @return string
+   *   The render array defining the markup of the title.
+   */
+  public function getTitleMarkup(string $module, int $current_step) {
+    $module_name = $this->moduleHandler->getName($module);
+    return '<div class="title_markup"><div id="main-title">Acquia CMS Installation Wizard</div><div class="configure-markup">' .
+      $current_step . '. Configure ' . $module_name .
+      '</div><span class="req-markup">Fields marked <span id = "astrick">*</span> are required</span></span></div>';
   }
 
 }
