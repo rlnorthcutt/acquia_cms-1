@@ -3,7 +3,7 @@
 namespace Drupal\Tests\acquia_cms\ExistingSiteJavascript;
 
 /**
- * Tests the "Image Background Hero" helper.
+ * Tests the "Two column page with hero helpers".
  *
  * @group acquia_cms
  * @group site_studio
@@ -11,7 +11,7 @@ namespace Drupal\Tests\acquia_cms\ExistingSiteJavascript;
  * @group pr
  * @group push
  */
-class ImageBackgroundHeroHelperTest extends CohesionHelperTestBase {
+class TextAndCardGridHelperTest extends CohesionHelperTestBase {
 
   /**
    * Tests that the helper can be added to a layout canvas.
@@ -20,8 +20,6 @@ class ImageBackgroundHeroHelperTest extends CohesionHelperTestBase {
    *   Additional user roles to apply to the account being logged in.
    *
    * @dataProvider providerAddHelperToLayoutCanvas
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function testHelper(array $roles = []) {
     $account = $this->createUser();
@@ -32,8 +30,8 @@ class ImageBackgroundHeroHelperTest extends CohesionHelperTestBase {
     $this->drupalGet('/node/add/page');
 
     // Add the helper to the layout canvas.
-    $this->getLayoutCanvas()->addHelper('Image Background Hero', [
-      'Background container',
+    $this->getLayoutCanvas()->addHelper('Text and card grid', [
+      'Text and cards - 2 column layout',
     ]);
   }
 
@@ -44,8 +42,6 @@ class ImageBackgroundHeroHelperTest extends CohesionHelperTestBase {
    *   The ID of the user role to test with.
    *
    * @dataProvider providerEditAccess
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function testEditAccess(string $role) {
     $account = $this->createUser();
@@ -54,7 +50,7 @@ class ImageBackgroundHeroHelperTest extends CohesionHelperTestBase {
     $this->drupalLogin($account);
 
     $this->drupalGet('/admin/cohesion/helpers/helpers');
-    $this->editDefinition('Page Layouts', 'Image Background Hero');
+    $this->editDefinition('Card sections', 'Text and card grid');
   }
 
 }
