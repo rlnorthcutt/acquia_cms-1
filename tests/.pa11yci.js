@@ -3,7 +3,7 @@
  * Pa11y config.
  */
 
-const baseURL = 'http://127.0.0.1:8080';
+const baseURL = 'http://127.0.0.1:8000';
 
 // Add urls for a11y testing here.
 const urls = [

@@ -14,10 +14,13 @@
     "install-tools": "npm ci",
     "uninstall-tools": "rm -r node_modules;",
     "pa11y-starter": "pa11y-ci --config tests/.pa11yci.js",
+    "pa11y-starter-ide": "pa11y-ci --config tests/.pa11yci.js http://127.0.0.1:8000/",
+    "backstop-starter-ide": "backstop test --config=tests/backstop/backstop-settings.js --testhost=http://127.0.0.1:8000/ --pathfile=paths --labelfile=labels",
     "backstop-starter": "backstop test --config=tests/backstop/backstop.json"
   },
   "dependencies": {
     "backstopjs": "^5.0.6",
+    "minimist": "^1.2.5",
     "pa11y-ci": "^2.4.0",
     "scripts": "^0.1.0"
   }

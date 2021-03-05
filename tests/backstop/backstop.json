@@ -23,7 +23,7 @@
     {
       "label": "ACMS Homepage (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080",
+      "url": "http://127.0.0.1:8000",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -42,7 +42,7 @@
     {
       "label": "ACMS Articles (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/articles",
+      "url": "http://127.0.0.1:8000/articles",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -61,7 +61,7 @@
     {
       "label": "ACMS Events (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/events",
+      "url": "http://127.0.0.1:8000/events",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -80,7 +80,7 @@
     {
       "label": "ACMS People (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/people",
+      "url": "http://127.0.0.1:8000/people",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -99,7 +99,7 @@
     {
       "label": "ACMS Places (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/places",
+      "url": "http://127.0.0.1:8000/places",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -118,7 +118,7 @@
     {
       "label": "ACMS Person (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/person/professor/person-1",
+      "url": "http://127.0.0.1:8000/person/professor/person-1",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -137,7 +137,7 @@
     {
       "label": "ACMS Place (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/place/museum/place-example-1",
+      "url": "http://127.0.0.1:8000/place/museum/place-example-1",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -156,7 +156,7 @@
     {
       "label": "ACMS Event (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/event/conference/2021/02/conference-event-1",
+      "url": "http://127.0.0.1:8000/event/conference/2021/02/conference-event-1",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -175,7 +175,7 @@
     {
       "label": "ACMS Article (Starter)",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://127.0.0.1:8080/article/book/article-1",
+      "url": "http://127.0.0.1:8000/article/book/article-1",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
