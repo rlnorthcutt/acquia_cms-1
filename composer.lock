@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e548f51e1b926f3d0480bcab3d672eb",
+    "content-hash": "f22b708cb5ef60326a72a9377d5e193b",
     "packages": [
         {
             "name": "acquia/acsf-contenthub-console",
@@ -12729,22 +12729,22 @@
         },
         {
             "name": "spatie/ssl-certificate",
-            "version": "1.21.0",
+            "version": "1.19.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ssl-certificate.git",
-                "reference": "3f827acdbff1745e1af2a4a38d7b985494db4ac1"
+                "reference": "0fba58aa801dc85fcc009dc1e8d1e71b97a6b250"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ssl-certificate/zipball/3f827acdbff1745e1af2a4a38d7b985494db4ac1",
-                "reference": "3f827acdbff1745e1af2a4a38d7b985494db4ac1",
+                "url": "https://api.github.com/repos/spatie/ssl-certificate/zipball/0fba58aa801dc85fcc009dc1e8d1e71b97a6b250",
+                "reference": "0fba58aa801dc85fcc009dc1e8d1e71b97a6b250",
                 "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
                 "ext-json": "*",
-                "nesbot/carbon": "^2.3",
+                "nesbot/carbon": "^1.15|^2.0",
                 "php": "^7.2",
                 "spatie/macroable": "^1.0"
             },
@@ -12781,14 +12781,15 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/ssl-certificate/issues",
-                "source": "https://github.com/spatie/ssl-certificate/tree/1.21.0"
+                "source": "https://github.com/spatie/ssl-certificate/tree/1.19.1"
             },
             "funding": [
                 {
-                    "type": "spatie"
+                    "url": "https://www.patreon.com/spatie",
+                    "type": "patreon"
                 }
             ],
-            "time": "2020-10-19T06:41:57+00:00"
+            "time": "2020-04-01T14:52:44+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
