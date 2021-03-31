@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59dd7b37988b58f98be94af573cb6b7f",
+    "content-hash": "3e548f51e1b926f3d0480bcab3d672eb",
     "packages": [
         {
             "name": "acquia/acsf-contenthub-console",
@@ -267,22 +267,22 @@
         },
         {
             "name": "acquia/contenthub-console",
-            "version": "1.1",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/acquia/contenthub-console.git",
-                "reference": "255928e4a42dd8e53a3945e3f5621a7f46ef16f7"
+                "reference": "798010032b5bfaba68a18013a7b00aae02362913"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acquia/contenthub-console/zipball/255928e4a42dd8e53a3945e3f5621a7f46ef16f7",
-                "reference": "255928e4a42dd8e53a3945e3f5621a7f46ef16f7",
+                "url": "https://api.github.com/repos/acquia/contenthub-console/zipball/798010032b5bfaba68a18013a7b00aae02362913",
+                "reference": "798010032b5bfaba68a18013a7b00aae02362913",
                 "shasum": ""
             },
             "require": {
                 "acquia/acsf-contenthub-console": "^1.0",
                 "ext-json": "*",
-                "spatie/ssl-certificate": "1.21"
+                "spatie/ssl-certificate": "^1.19"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.4",
@@ -309,9 +309,9 @@
             "description": "A package providing Acquia ContentHub commands for the CommonConsole command line interface.",
             "support": {
                 "issues": "https://github.com/acquia/contenthub-console/issues",
-                "source": "https://github.com/acquia/contenthub-console/tree/1.1"
+                "source": "https://github.com/acquia/contenthub-console/tree/1.0"
             },
-            "time": "2021-03-15T20:29:46+00:00"
+            "time": "2021-02-17T13:09:26+00:00"
         },
         {
             "name": "acquia/contenthub-console-helpers",
