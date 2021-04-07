@@ -105,7 +105,7 @@ class SearchTest extends ExistingSiteSelenium2DriverTestBase {
       $this->assertLinkNotExists('Test unpublished ' . $node_type_label);
 
       // Activate the facet for this content type.
-      // @todo Revisit this assertion.
+      $this->assertLinkExists($node_type_label . ' (3)', $facets)->click();
       $this->assertLinkExists('Test published ' . $node_type_label);
       $this->assertLinkNotExists('Test unpublished ' . $node_type_label);
 
@@ -113,6 +113,11 @@ class SearchTest extends ExistingSiteSelenium2DriverTestBase {
       if ($node_type_id !== 'page') {
         // Check if term facet is working properly.
         // @todo Revisit this assertion.
+        $this->assertSession()
+          ->elementExists('css', '.coh-style-facet-accordion')
+          ->clickLink($node_type_label . ' Music (1)');
+        // Assert that the clear filter is present.
+        $this->assertSession()->linkExists('Clear filter(s)');
         // Check if node of the selected term is shown.
         $this->assertLinkExists('Test published ' . $node_type_label);
         $this->assertLinkNotExists('Test unpublished ' . $node_type_label);
@@ -217,8 +222,8 @@ class SearchTest extends ExistingSiteSelenium2DriverTestBase {
    */
   private function assertFacetLinkExists(ElementInterface $facets = NULL) {
     // Get the container which holds the facets, and assert that, initially, the
-    // content type facet is not visible but none of the dependent facets are.
-    $this->assertFalse($this->assertLinkExists('Content Type', $facets)->isVisible());
+    // content type facet is visible but none of the dependent facets are.
+    $this->assertTrue($this->assertLinkExists('Content Type', $facets)->isVisible());
     $this->assertFalse($this->assertLinkExists('Article Type', $facets)->isVisible());
     $this->assertFalse($this->assertLinkExists('Event Type', $facets)->isVisible());
     $this->assertFalse($this->assertLinkExists('Person Type', $facets)->isVisible());
