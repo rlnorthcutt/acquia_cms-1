@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
-    - core.entity_view_mode.media.media_library
   module:
     - cohesion
     - editor
@@ -16,30 +15,29 @@ filters:
     id: filter_autop
     provider: filter
     status: true
-    weight: -48
+    weight: -47
     settings: {  }
   filter_url:
     id: filter_url
-    provider: filterclear
+    provider: filter
     status: true
-    weight: -47
+    weight: -50
     settings:
       filter_url_length: 72
   filter_html:
     id: filter_html
     provider: filter
     status: true
-    weight: -49
-    # Manually added the <p> tags for alignment buttons per https://www.drupal.org/project/drupal/issues/2649546.
+    weight: -45
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid data-align data-caption> <sup> <sub> <s> <u> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <p class="text-align-left text-align-center text-align-right text-align-justify">'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <li> <dt> <dd> <img src alt data-entity-type data-entity-uuid data-align data-caption> <sup> <sub> <s> <u> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <a href hreflang class="coh-style-link-button-light coh-style-link-with-icon coh-style-link-button-dark coh-style-link-button-color"> <ul type class="coh-style-tick-list"> <ol start type class="coh-style-tick-list"> <p class="text-align-left text-align-center text-align-right text-align-justify coh-style-paragraph-extra-large coh-style-paragraph-small coh-style-paragraph-large"> <h2 id class="coh-style-heading-3-size coh-style-heading-2-size coh-style-pre-heading coh-style-pre-heading-dark coh-style-heading-5-size coh-style-pre-heading-blue coh-style-heading-1-size coh-style-heading-xl coh-style-heading-4-size coh-style-pre-heading-light"> <h3 id class="coh-style-heading-3-size coh-style-heading-2-size coh-style-pre-heading coh-style-pre-heading-dark coh-style-heading-5-size coh-style-pre-heading-blue coh-style-heading-1-size coh-style-heading-xl coh-style-heading-4-size coh-style-pre-heading-light"> <h4 id class="coh-style-heading-3-size coh-style-heading-2-size coh-style-pre-heading coh-style-pre-heading-dark coh-style-heading-5-size coh-style-pre-heading-blue coh-style-heading-1-size coh-style-heading-xl coh-style-heading-4-size coh-style-pre-heading-light"> <h5 id class="coh-style-heading-3-size coh-style-heading-2-size coh-style-pre-heading coh-style-pre-heading-dark coh-style-heading-5-size coh-style-pre-heading-blue coh-style-heading-1-size coh-style-heading-xl coh-style-heading-4-size coh-style-pre-heading-light"> <h6 id class="coh-style-heading-3-size coh-style-heading-2-size coh-style-pre-heading coh-style-pre-heading-dark coh-style-heading-5-size coh-style-pre-heading-blue coh-style-heading-1-size coh-style-heading-xl coh-style-heading-4-size coh-style-pre-heading-light"> <h1 class="coh-style-heading-3-size coh-style-heading-2-size coh-style-pre-heading coh-style-pre-heading-dark coh-style-heading-5-size coh-style-pre-heading-blue coh-style-heading-1-size coh-style-heading-xl coh-style-heading-4-size coh-style-pre-heading-light"> <dl class="coh-style-tick-list"> <span class="coh-style-paragraph-extra-large coh-style-link-button-light coh-style-heading-3-size coh-style-link-with-icon coh-style-heading-2-size coh-style-tick-list coh-style-pre-heading coh-style-pre-heading-dark coh-style-heading-5-size coh-style-link-button-dark coh-style-paragraph-small coh-style-pre-heading-blue coh-style-heading-1-size coh-style-heading-xl coh-style-heading-4-size coh-style-link-button-color coh-style-pre-heading-light coh-style-paragraph-large coh-color-brand-color-light coh-color-brand-color coh-color-brand-color-dark coh-color-gray coh-color-gray-10 coh-color-gray-20 coh-color-gray-30 coh-color-gray-70 coh-color-gray-80 coh-color-black coh-color-gray-90 coh-color-white">'
       filter_html_help: true
       filter_html_nofollow: false
   media_embed:
     id: media_embed
     provider: media
     status: true
-    weight: -50
+    weight: -43
     settings:
       default_view_mode: embedded
       allowed_media_types: {  }
@@ -48,41 +46,41 @@ filters:
     id: black_list_html_tags
     provider: cohesion
     status: false
-    weight: -45
+    weight: -41
     settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
-    status: false
-    weight: -44
+    status: true
+    weight: -49
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
-    status: false
-    weight: -40
+    status: true
+    weight: -44
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
-    status: false
-    weight: -43
+    status: true
+    weight: -48
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
-    status: false
-    weight: -42
+    status: true
+    weight: -46
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -46
+    weight: -42
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -41
+    weight: -40
     settings: {  }
