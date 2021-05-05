@@ -2,7 +2,7 @@
 
 namespace Drupal\acquia_cms\Form;
 
-use Drupal\acquia_cms_tour\Form\AcquiaGoogleMapsAPIForm;
+use Drupal\acquia_cms_common\Form\AcquiaGoogleMapsAPIForm;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Extension\ModuleInstallerInterface;

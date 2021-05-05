@@ -2,8 +2,8 @@
 
 namespace Drupal\acquia_cms_tour\Controller;
 
+use Drupal\acquia_cms_common\Form\AcquiaGoogleMapsAPIForm;
 use Drupal\acquia_cms_tour\Form\AcquiaConnectorForm;
-use Drupal\acquia_cms_tour\Form\AcquiaGoogleMapsAPIForm;
 use Drupal\acquia_cms_tour\Form\AcquiaSearchForm;
 use Drupal\acquia_cms_tour\Form\AcquiaTelemetryForm;
 use Drupal\acquia_cms_tour\Form\GoogleAnalyticsForm;
