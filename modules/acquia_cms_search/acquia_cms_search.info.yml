@@ -7,3 +7,4 @@ dependencies:
   - drupal:node
   - drupal:views
   - search_api:search_api
+  - drupal:acquia_cms_article
